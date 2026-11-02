@@ -1,0 +1,16 @@
+{
+  "run_id": "WX-PAUSE-68C6BBA8",
+  "trace_id": "TRACE-PAUSE-68C6BBA8",
+  "scenario": "pause",
+  "approval_mode": "APPROVED",
+  "aws_region": "us-east-2",
+  "agent1_runtime_arn": "arn:aws:bedrock-agentcore:us-east-2:835156611439:runtime/cohort3_weather_network_intelligence-aRoVQk71fj",
+  "agent2_runtime_arn": "arn:aws:bedrock-agentcore:us-east-2:835156611439:runtime/cohort3_network_resilience-ph5xzN4X1u",
+  "agent1_session_id": "session-a1-f8c26d53-16f1-40af-a0cb-4ebe2178cbf1-3541627b",
+  "agent2_session_id": "session-a2-84d24a5b-4265-4727-be7f-d73438bcbfdf-765e9ab8",
+  "bedrock_model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "bedrock_result_status": "SUCCEEDED",
+  "bedrock_fallback_used": false,
+  "bedrock_error_reason": null,
+  "recorded_at": "2026-11-02T19:15:51.412996+00:00"
+}

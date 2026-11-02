@@ -1,0 +1,10 @@
+{
+  "run_id": "WX-ALLOW-4D2494BB",
+  "trace_id": "TRACE-ALLOW-4D2494BB",
+  "scenario": "allow",
+  "approval_instruction": "NONE",
+  "weather_event": "HIGH_WIND",
+  "severity": "LOW",
+  "affected_region": "Region-B",
+  "synthetic": true
+}

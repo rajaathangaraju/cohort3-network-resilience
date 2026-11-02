@@ -1,0 +1,122 @@
+[
+  {
+    "timestamp": 1793646795914,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_weather_network_intelligence-aRoVQk71fj-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a1-6b9606de-b62d-4cb1-9f5b-4b71942a03c2-79db373a]c29dd1f3-220f-4a97-a47f-54463ab14ca1",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"weather_network_intelligence\", \"operation\": \"validate_weather_event\", \"result\": \"success\", \"event\": \"validate_weather_event\", \"timestamp\": \"2026-11-02T19:13:15.914628Z\"}"
+  },
+  {
+    "timestamp": 1793646795915,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_weather_network_intelligence-aRoVQk71fj-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a1-6b9606de-b62d-4cb1-9f5b-4b71942a03c2-79db373a]c29dd1f3-220f-4a97-a47f-54463ab14ca1",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"weather_network_intelligence\", \"operation\": \"query_network_inventory\", \"result\": \"success\", \"element_count\": 2, \"event\": \"query_network_inventory\", \"timestamp\": \"2026-11-02T19:13:15.914831Z\"}"
+  },
+  {
+    "timestamp": 1793646795915,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_weather_network_intelligence-aRoVQk71fj-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a1-6b9606de-b62d-4cb1-9f5b-4b71942a03c2-79db373a]c29dd1f3-220f-4a97-a47f-54463ab14ca1",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"weather_network_intelligence\", \"operation\": \"build_network_risk_event\", \"result\": \"success\", \"event\": \"build_network_risk_event\", \"timestamp\": \"2026-11-02T19:13:15.915009Z\"}"
+  },
+  {
+    "timestamp": 1793646795915,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_weather_network_intelligence-aRoVQk71fj-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a1-6b9606de-b62d-4cb1-9f5b-4b71942a03c2-79db373a]c29dd1f3-220f-4a97-a47f-54463ab14ca1",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"weather_network_intelligence\", \"operation\": \"agentcore_invoke\", \"result\": \"success\", \"affected_elements\": 2, \"event\": \"agentcore_invoke\", \"timestamp\": \"2026-11-02T19:13:15.915185Z\"}"
+  },
+  {
+    "timestamp": 1793646795915,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_weather_network_intelligence-aRoVQk71fj-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a1-6b9606de-b62d-4cb1-9f5b-4b71942a03c2-79db373a]c29dd1f3-220f-4a97-a47f-54463ab14ca1",
+    "message": "{\"timestamp\": \"2026-11-02T19:13:15.915Z\", \"level\": \"INFO\", \"message\": \"Invocation completed successfully (0.067s)\", \"logger\": \"bedrock_agentcore.app\", \"requestId\": \"527e8306-5ce0-4d8a-a4e0-d01e6fc15b83\", \"sessionId\": \"session-a1-6b9606de-b62d-4cb1-9f5b-4b71942a03c2-79db373a\"}"
+  },
+  {
+    "timestamp": 1793646795915,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_weather_network_intelligence-aRoVQk71fj-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a1-6b9606de-b62d-4cb1-9f5b-4b71942a03c2-79db373a]c29dd1f3-220f-4a97-a47f-54463ab14ca1",
+    "message": "Invocation completed successfully (0.067s)"
+  },
+  {
+    "timestamp": 1793646799443,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"validate_input\", \"result\": \"success\", \"event\": \"validate_input\", \"timestamp\": \"2026-11-02T19:13:19.443716Z\"}"
+  },
+  {
+    "timestamp": 1793646799444,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"enrich_inventory\", \"result\": \"enriched\", \"resolved_count\": 2, \"unresolved_count\": 0, \"event\": \"enrich_inventory\", \"timestamp\": \"2026-11-02T19:13:19.443907Z\"}"
+  },
+  {
+    "timestamp": 1793646799444,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"analyze_service_impact\", \"result\": \"HIGH\", \"event\": \"analyze_service_impact\", \"timestamp\": \"2026-11-02T19:13:19.444021Z\"}"
+  },
+  {
+    "timestamp": 1793646799444,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"assess_risk\", \"result\": \"CRITICAL\", \"risk_score\": 85, \"event\": \"assess_risk\", \"timestamp\": \"2026-11-02T19:13:19.444146Z\"}"
+  },
+  {
+    "timestamp": 1793646799471,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "Found credentials from IAM Role: execution_role"
+  },
+  {
+    "timestamp": 1793646802556,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"bedrock_generate_explanation\", \"result\": \"success\", \"model_id\": \"us.anthropic.claude-haiku-4-5-20251001-v1:0\", \"fallback_used\": false, \"event\": \"bedrock_generate_explanation\", \"times"
+  },
+  {
+    "timestamp": 1793646802557,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"generate_recommendation\", \"result\": \"REROUTE_TRAFFIC\", \"bedrock_model_id\": \"us.anthropic.claude-haiku-4-5-20251001-v1:0\", \"bedrock_fallback_used\": false, \"event\": \"generate_recommend"
+  },
+  {
+    "timestamp": 1793646802557,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"evaluate_governance\", \"result\": \"PAUSE\", \"decision\": \"PAUSE\", \"event\": \"evaluate_governance\", \"timestamp\": \"2026-11-02T19:13:22.557877Z\"}"
+  },
+  {
+    "timestamp": 1793646802558,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"evaluate_approval\", \"result\": \"APPROVED\", \"approval_status\": \"APPROVED\", \"event\": \"evaluate_approval\", \"timestamp\": \"2026-11-02T19:13:22.558056Z\"}"
+  },
+  {
+    "timestamp": 1793646802558,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"execute_action\", \"result\": \"EXECUTED\", \"execution_status\": \"EXECUTED\", \"event\": \"execute_action\", \"timestamp\": \"2026-11-02T19:13:22.558255Z\"}"
+  },
+  {
+    "timestamp": 1793646802558,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"verify_action\", \"result\": \"PASSED\", \"verification_status\": \"PASSED\", \"event\": \"verify_action\", \"timestamp\": \"2026-11-02T19:13:22.558404Z\"}"
+  },
+  {
+    "timestamp": 1793646802559,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"run_id\": \"WX-PAUSE-0C07E286\", \"trace_id\": \"TRACE-PAUSE-0C07E286\", \"agent_name\": \"network_resilience\", \"operation\": \"agentcore_invoke\", \"result\": \"success\", \"governance_decision\": \"PAUSE\", \"approval_status\": \"APPROVED\", \"execution_status\": \"EXECUTED\", \"event\": \"agentcore_invoke\", \"timestamp\": \"2026"
+  },
+  {
+    "timestamp": 1793646802559,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "{\"timestamp\": \"2026-11-02T19:13:22.559Z\", \"level\": \"INFO\", \"message\": \"Invocation completed successfully (3.183s)\", \"logger\": \"bedrock_agentcore.app\", \"requestId\": \"41925121-ffa2-4fb1-b4c7-9d59a3a2ffe7\", \"sessionId\": \"session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3\"}"
+  },
+  {
+    "timestamp": 1793646802559,
+    "logGroupName": "/aws/bedrock-agentcore/runtimes/cohort3_network_resilience-ph5xzN4X1u-DEFAULT",
+    "logStreamName": "2026/11/02/[runtime-logs-session-a2-083d2931-47c7-4a25-960e-31650d9b598a-986ce1d3]3bc3d8c5-5a48-4a4f-8d75-5a73516d9ebe",
+    "message": "Invocation completed successfully (3.183s)"
+  }
+]

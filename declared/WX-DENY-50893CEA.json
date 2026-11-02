@@ -1,0 +1,10 @@
+{
+  "run_id": "WX-DENY-50893CEA",
+  "trace_id": "TRACE-DENY-50893CEA",
+  "scenario": "deny",
+  "approval_instruction": "NONE",
+  "weather_event": "SEVERE_STORM",
+  "severity": "HIGH",
+  "affected_region": "Region-C",
+  "synthetic": true
+}

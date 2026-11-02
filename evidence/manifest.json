@@ -1,0 +1,14 @@
+{
+  "purpose": "Post-run integrity snapshot; not a pre-run declaration",
+  "sha256": {
+    "evidence/WX-ALLOW-4D2494BB/agent1-response.json": "818a8f1a1c60c0be18a6b0d3eac25c9dc8c13aa6eea33155138e74d0d0fde6d3",
+    "evidence/WX-ALLOW-4D2494BB/agent2-response.json": "ad16814e7cebaef99611282f154d4d6013c5fdfef1a334b3893803c3da02bbf9",
+    "evidence/WX-ALLOW-4D2494BB/workflow-summary.json": "ed0591f32d1953365d098e7169fba78b0556e9149ec097ebe5ce2ca7abb98073",
+    "evidence/WX-DENY-5614F523/agent1-response.json": "f0bd4cdce5866c8ba2034e8d9f6093c226a67487efdfb546afee5c820e8b824d",
+    "evidence/WX-DENY-5614F523/agent2-response.json": "4eed0ed4fb3b4f62054b339d1aebbb61619ed521bb6afb66ed68f0ea0e7f641c",
+    "evidence/WX-DENY-5614F523/workflow-summary.json": "2efe3d97b3ef76847d23e1c97a501f6d96d6977da631be75dc382d46a410d646",
+    "evidence/WX-PAUSE-0C07E286/agent1-response.json": "bac6b283b8e2e5700796dbb129e9488221849b8724b9878129faa7e570b53ab7",
+    "evidence/WX-PAUSE-0C07E286/agent2-response.json": "8b37f25ee24ba5bdd465a16694f70764e2af3ea56cb7b1a62198c1755016d69f",
+    "evidence/WX-PAUSE-0C07E286/workflow-summary.json": "0a54ecf2ccd99cae4fe28175026d863ccb1678830fd8c6b35b0e870b71adaed0"
+  }
+}

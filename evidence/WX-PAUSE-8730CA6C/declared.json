@@ -1,0 +1,10 @@
+{
+  "run_id": "WX-PAUSE-8730CA6C",
+  "trace_id": "TRACE-PAUSE-8730CA6C",
+  "scenario": "pause",
+  "approval_instruction": "NONE",
+  "weather_event": "SEVERE_STORM",
+  "severity": "HIGH",
+  "affected_region": "Demo-Region-A",
+  "synthetic": true
+}

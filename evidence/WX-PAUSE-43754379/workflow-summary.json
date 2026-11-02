@@ -1,0 +1,164 @@
+{
+  "run_id": "WX-PAUSE-43754379",
+  "trace_id": "TRACE-PAUSE-43754379",
+  "schema_version": "0.1",
+  "team_code": "TEAM_PENDING",
+  "risk_assessment": {
+    "risk_score": 85,
+    "overall_risk": "CRITICAL",
+    "weather_risk": "HIGH",
+    "network_risk": "HIGH",
+    "service_risk": "HIGH",
+    "risk_reasons": [
+      "Weather severity HIGH contributed +40 points.",
+      "Highest affected asset criticality CRITICAL (NE-101) contributed +20 points.",
+      "Affected network element count (2) contributed +10 points.",
+      "Service exposure (4 affected service(s)) contributed +15 points.",
+      "Redundancy is available for all resolved elements (+0 points).",
+      "All requested network elements resolved in inventory (+0 points)."
+    ],
+    "unresolved_network_elements": []
+  },
+  "ai_reasoning": {
+    "run_id": "WX-PAUSE-43754379",
+    "trace_id": "TRACE-PAUSE-43754379",
+    "model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "operation": "generate_resilience_explanation",
+    "start_status": "STARTED",
+    "result_status": "SUCCEEDED",
+    "fallback_used": false,
+    "error_reason": null,
+    "recorded_at": "2026-11-02T19:15:24.362243Z",
+    "reasoning": {
+      "situation_summary": "A HIGH severity SEVERE_STORM weather event is affecting Demo-Region-A. Two critical network elements are impacted: NE-101 (CRITICAL criticality) and NE-102 (HIGH criticality). Four service types are at risk: MOBILE_DATA, VOICE, IP_TRANSIT, and ENTERPRISE_CONNECTIVITY. No unresolved network elements remain from prior assessments.",
+      "risk_explanation": "The deterministic risk assessment has computed an overall risk score of 85, classified as CRITICAL. This score reflects: (1) HIGH weather severity in the affected region, (2) involvement of CRITICAL and HIGH criticality network assets, (3) exposure of multiple essential service categories, and (4) potential for service degradation or interruption across mobile, voice, transit, and enterprise connectivity domains.",
+      "recommendation_rationale": "The REROUTE_TRAFFIC preventive action is recommended for NE-101 and NE-102 to mitigate CRITICAL risk before weather impact intensifies. Rerouting traffic away from these elements reduces exposure to potential weather-induced failures and maintains service continuity for affected customers. This action is deterministically justified by the HIGH network risk and HIGH service risk scores combined with the CRITICAL overall risk classification.",
+      "operator_summary": "NOC operators should prepare to execute traffic rerouting procedures for NE-101 and NE-102 in Demo-Region-A. Monitor weather progression and network element status. Execute rerouting when weather conditions approach the affected infrastructure to prevent service interruption. Coordinate with relevant teams to ensure alternate routing capacity is available and validated before implementation."
+    }
+  },
+  "recommendation": {
+    "recommendation_id": "REC-2AC6819047",
+    "action": "REROUTE_TRAFFIC",
+    "target_network_elements": [
+      "NE-101",
+      "NE-102"
+    ],
+    "rationale": "Overall risk is CRITICAL (score=85); immediate preventive action 'REROUTE_TRAFFIC' is recommended for ['NE-101', 'NE-102'].",
+    "expected_outcome": "Proactively isolate or reroute critical services away from severe weather impact.",
+    "state_changing": true,
+    "human_approval_required": true,
+    "confidence": 0.92,
+    "generated_at": "2026-11-02T19:15:21.626593Z"
+  },
+  "governance": {
+    "decision": "PAUSE",
+    "reason": "Human approval is required before a state-changing or governed action.",
+    "matched_policy_rules": [
+      "POLICY-PAUSE-STATE-CHANGING-101",
+      "POLICY-PAUSE-HUMAN-APPROVAL-102"
+    ]
+  },
+  "approval": {
+    "status": "PENDING",
+    "approval_id": "APR-6DF0D5B8C4",
+    "requested_at": "2026-11-02T19:15:24.364293Z",
+    "decided_at": null,
+    "approver_reference": null,
+    "comments": "Awaiting explicit human approval."
+  },
+  "execution": {
+    "status": "BLOCKED",
+    "action_id": "ACT-82C5C413CD",
+    "action": "SIMULATE_TRAFFIC_REROUTE",
+    "target_network_elements": [
+      "NE-101",
+      "NE-102"
+    ],
+    "started_at": null,
+    "completed_at": null,
+    "result_message": "Execution blocked: human approval status is PENDING.",
+    "changed_state": false,
+    "synthetic": true
+  },
+  "verification": {
+    "status": "NOT_STARTED",
+    "verification_id": "VER-8195305B3D",
+    "action_id": "ACT-82C5C413CD",
+    "action_result_verified": false,
+    "asset_state": "AWAITING_APPROVAL_SYNTHETIC",
+    "post_action_check": "NOT_STARTED_PENDING_HUMAN_APPROVAL",
+    "outcome_verified": false,
+    "verification_reasons": [
+      "Synthetic verification has not started because action is paused awaiting human approval."
+    ],
+    "verified_at": null,
+    "synthetic": true
+  },
+  "workflow_stages": [
+    {
+      "stage": "WEATHER",
+      "status": "COMPLETED",
+      "summary": "Weather alert validated and ingested.",
+      "updated_at": "2026-11-02T19:15:24.365104Z"
+    },
+    {
+      "stage": "GEO_CORRELATION",
+      "status": "COMPLETED",
+      "summary": "Geographic correlation and bounding box validated.",
+      "updated_at": "2026-11-02T19:15:24.365108Z"
+    },
+    {
+      "stage": "ASSET_IMPACT",
+      "status": "COMPLETED",
+      "summary": "Network element enrichment and service impact completed.",
+      "updated_at": "2026-11-02T19:15:24.365112Z"
+    },
+    {
+      "stage": "RISK_ASSESSMENT",
+      "status": "COMPLETED",
+      "summary": "Deterministic 0-100 risk assessment completed.",
+      "updated_at": "2026-11-02T19:15:24.365114Z"
+    },
+    {
+      "stage": "RECOMMENDATION",
+      "status": "COMPLETED",
+      "summary": "Preventive action recommendation generated.",
+      "updated_at": "2026-11-02T19:15:24.365117Z"
+    },
+    {
+      "stage": "GOVERNANCE",
+      "status": "PAUSED",
+      "summary": "Governance policy evaluated to PAUSE (human approval required).",
+      "updated_at": "2026-11-02T19:15:24.365121Z"
+    },
+    {
+      "stage": "APPROVAL",
+      "status": "PAUSED",
+      "summary": "Awaiting explicit human approval (PENDING).",
+      "updated_at": "2026-11-02T19:15:24.365124Z"
+    },
+    {
+      "stage": "ACTION",
+      "status": "BLOCKED",
+      "summary": "Action execution blocked while human approval is PENDING.",
+      "updated_at": "2026-11-02T19:15:24.365127Z"
+    },
+    {
+      "stage": "VERIFICATION",
+      "status": "PENDING",
+      "summary": "Verification has not started while approval is PENDING.",
+      "updated_at": "2026-11-02T19:15:24.365130Z"
+    },
+    {
+      "stage": "EVIDENCE",
+      "status": "COMPLETED",
+      "summary": "Audit and stage evidence captured.",
+      "updated_at": "2026-11-02T19:15:24.365133Z"
+    }
+  ],
+  "evidence_count": 13,
+  "cloudwatch_event_count": 20,
+  "agent1_cloudwatch_event_count": 6,
+  "agent2_cloudwatch_event_count": 14,
+  "synthetic": true
+}

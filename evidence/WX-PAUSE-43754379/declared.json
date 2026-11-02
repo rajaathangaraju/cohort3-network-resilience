@@ -1,0 +1,10 @@
+{
+  "run_id": "WX-PAUSE-43754379",
+  "trace_id": "TRACE-PAUSE-43754379",
+  "scenario": "pause",
+  "approval_instruction": "NONE",
+  "weather_event": "SEVERE_STORM",
+  "severity": "HIGH",
+  "affected_region": "Demo-Region-A",
+  "synthetic": true
+}

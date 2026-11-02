@@ -1,0 +1,26 @@
+{
+  "primary_track": "track-3",
+  "team_code": "bb26-team19",
+  "evidence": {
+    "bucket": "cohort3-agentcore-835156611439",
+    "prefix": "evidence/"
+  },
+  "run_ids": [
+    "WX-ALLOW-4D2494BB",
+    "WX-DENY-5614F523",
+    "WX-PAUSE-0C07E286"
+  ],
+  "live_test_command": "aws s3 cp s3://cohort3-agentcore-835156611439/evidence/{run_id}/workflow-summary.json - --region us-east-2",
+  "rebuild_command": "python3 scripts/rebuild_evidence.py",
+  "reported_results": {
+    "saved_workflow_consistency": {
+      "runs_checked": 3,
+      "runs_passed": 3,
+      "file_integrity_verified": true,
+      "allow": "EXECUTED_WITHOUT_STATE_CHANGE",
+      "deny": "BLOCKED",
+      "pause": "APPROVED_THEN_EXECUTED",
+      "actions_synthetic": true
+    }
+  }
+}

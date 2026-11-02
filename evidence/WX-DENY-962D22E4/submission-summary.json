@@ -1,0 +1,19 @@
+{
+  "run_id": "WX-DENY-962D22E4",
+  "trace_id": "TRACE-DENY-962D22E4",
+  "scenario": "deny",
+  "approval_instruction": "NONE",
+  "declaration_s3_uri": "s3://cohort3-agentcore-835156611439/declared/WX-DENY-962D22E4.json",
+  "declaration_s3_last_modified": "2026-11-02T19:09:29+00:00",
+  "evidence_s3_prefix": "s3://cohort3-agentcore-835156611439/evidence/WX-DENY-962D22E4/",
+  "governance_decision": "DENY",
+  "approval_status": "NOT_REQUIRED",
+  "execution_status": "BLOCKED",
+  "verification_status": "BLOCKED",
+  "cloudwatch_total_events": 20,
+  "agent1_cloudwatch_events": 6,
+  "agent2_cloudwatch_events": 14,
+  "agent1_runtime_arn": "arn:aws:bedrock-agentcore:us-east-2:835156611439:runtime/cohort3_weather_network_intelligence-aRoVQk71fj",
+  "agent2_runtime_arn": "arn:aws:bedrock-agentcore:us-east-2:835156611439:runtime/cohort3_network_resilience-ph5xzN4X1u",
+  "synthetic": true
+}

@@ -1,0 +1,172 @@
+{
+  "run_id": "WX-DENY-5614F523",
+  "trace_id": "TRACE-DENY-5614F523",
+  "schema_version": "0.1",
+  "team_code": "TEAM_PENDING",
+  "risk_assessment": {
+    "risk_score": 100,
+    "overall_risk": "CRITICAL",
+    "weather_risk": "HIGH",
+    "network_risk": "HIGH",
+    "service_risk": "HIGH",
+    "risk_reasons": [
+      "Weather severity HIGH contributed +40 points.",
+      "Highest affected asset criticality HIGH (NE-301) contributed +15 points.",
+      "Affected network element count (4) contributed +15 points.",
+      "Service exposure (2 affected service(s)) contributed +10 points.",
+      "Redundancy is missing for at least one affected element (+10 points).",
+      "Unresolved inventory element(s) ['NE-302', 'NE-303', 'NE-304'] contributed +10 points."
+    ],
+    "unresolved_network_elements": [
+      "NE-302",
+      "NE-303",
+      "NE-304"
+    ]
+  },
+  "ai_reasoning": {
+    "run_id": "WX-DENY-5614F523",
+    "trace_id": "TRACE-DENY-5614F523",
+    "model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "operation": "generate_resilience_explanation",
+    "start_status": "STARTED",
+    "result_status": "SUCCEEDED",
+    "fallback_used": false,
+    "error_reason": null,
+    "recorded_at": "2026-11-02T19:14:31.283756Z",
+    "reasoning": {
+      "situation_summary": "A HIGH severity SEVERE_STORM weather event is affecting Region-C with four network elements at risk: NE-301, NE-302, NE-303, and NE-304. NE-301 is classified as HIGH criticality. Two services are potentially impacted: ENTERPRISE_VPN and SIP_TRUNKING.",
+      "risk_explanation": "The deterministic risk assessment has computed a CRITICAL overall risk score of 100 based on HIGH network risk and HIGH service risk factors. Three network elements (NE-302, NE-303, NE-304) have incomplete or unresolved inventory data, preventing full risk characterization. NE-301, despite being HIGH criticality, cannot be fully assessed without complete data on all affected elements.",
+      "recommendation_rationale": "Automated state-changing actions are withheld because inventory data gaps exist for NE-302, NE-303, and NE-304. The system cannot deterministically validate the operational state or dependencies of these elements. Manual operator review is required to assess current conditions, verify element status, and make informed decisions about protective actions before the weather event impacts service delivery.",
+      "operator_summary": "CRITICAL risk detected in Region-C affecting ENTERPRISE_VPN and SIP_TRUNKING services. Four network elements require immediate operator attention. Recommend: (1) verify current operational status of NE-302, NE-303, NE-304; (2) confirm NE-301 resilience posture; (3) assess service continuity exposure; (4) determine if manual protective measures are warranted based on real-time conditions and inventory validation."
+    }
+  },
+  "recommendation": {
+    "recommendation_id": "REC-FB126FE73A",
+    "action": "NO_AUTOMATED_ACTION",
+    "target_network_elements": [
+      "NE-301",
+      "NE-302",
+      "NE-303",
+      "NE-304"
+    ],
+    "rationale": "Inventory data is incomplete for element(s) ['NE-302', 'NE-303', 'NE-304']; automated state-changing actions are withheld pending operator review.",
+    "expected_outcome": "Prevent unverified automated changes while operators inspect missing inventory.",
+    "state_changing": false,
+    "human_approval_required": true,
+    "confidence": 0.5,
+    "generated_at": "2026-11-02T19:14:28.578512Z"
+  },
+  "governance": {
+    "decision": "DENY",
+    "reason": "Explicit governance DENY scenario policy rule.; Automated action is denied because inventory data is incomplete for: ['NE-302', 'NE-303', 'NE-304'].",
+    "matched_policy_rules": [
+      "POLICY-DENY-FORCED-000",
+      "POLICY-DENY-INCOMPLETE-INVENTORY-004"
+    ]
+  },
+  "approval": {
+    "status": "NOT_REQUIRED",
+    "approval_id": "APR-758EDD1093",
+    "requested_at": "2026-11-02T19:14:31.284964Z",
+    "decided_at": "2026-11-02T19:14:31.284964Z",
+    "approver_reference": null,
+    "comments": "Human approval is not required for this governance decision."
+  },
+  "execution": {
+    "status": "BLOCKED",
+    "action_id": "ACT-8D953125E2",
+    "action": "NO_AUTOMATED_ACTION",
+    "target_network_elements": [
+      "NE-301",
+      "NE-302",
+      "NE-303",
+      "NE-304"
+    ],
+    "started_at": null,
+    "completed_at": null,
+    "result_message": "Execution blocked by DENY governance decision.",
+    "changed_state": false,
+    "synthetic": true
+  },
+  "verification": {
+    "status": "BLOCKED",
+    "verification_id": "VER-5352C6C8AD",
+    "action_id": "ACT-8D953125E2",
+    "action_result_verified": false,
+    "asset_state": "UNCHANGED_SYNTHETIC",
+    "post_action_check": "SKIPPED_DUE_TO_GOVERNANCE_DENY",
+    "outcome_verified": false,
+    "verification_reasons": [
+      "Synthetic verification blocked because governance decision was DENY."
+    ],
+    "verified_at": null,
+    "synthetic": true
+  },
+  "workflow_stages": [
+    {
+      "stage": "WEATHER",
+      "status": "COMPLETED",
+      "summary": "Weather alert validated and ingested.",
+      "updated_at": "2026-11-02T19:14:31.285240Z"
+    },
+    {
+      "stage": "GEO_CORRELATION",
+      "status": "COMPLETED",
+      "summary": "Geographic correlation and bounding box validated.",
+      "updated_at": "2026-11-02T19:14:31.285243Z"
+    },
+    {
+      "stage": "ASSET_IMPACT",
+      "status": "COMPLETED",
+      "summary": "Asset enrichment completed with unresolved IDs: ['NE-302', 'NE-303', 'NE-304'].",
+      "updated_at": "2026-11-02T19:14:31.285247Z"
+    },
+    {
+      "stage": "RISK_ASSESSMENT",
+      "status": "COMPLETED",
+      "summary": "Deterministic 0-100 risk assessment completed.",
+      "updated_at": "2026-11-02T19:14:31.285249Z"
+    },
+    {
+      "stage": "RECOMMENDATION",
+      "status": "COMPLETED",
+      "summary": "Preventive action recommendation generated.",
+      "updated_at": "2026-11-02T19:14:31.285251Z"
+    },
+    {
+      "stage": "GOVERNANCE",
+      "status": "BLOCKED",
+      "summary": "Governance policy evaluated to DENY.",
+      "updated_at": "2026-11-02T19:14:31.285254Z"
+    },
+    {
+      "stage": "APPROVAL",
+      "status": "BLOCKED",
+      "summary": "Approval not required because governance decision is DENY.",
+      "updated_at": "2026-11-02T19:14:31.285256Z"
+    },
+    {
+      "stage": "ACTION",
+      "status": "BLOCKED",
+      "summary": "Action execution blocked by governance DENY.",
+      "updated_at": "2026-11-02T19:14:31.285258Z"
+    },
+    {
+      "stage": "VERIFICATION",
+      "status": "BLOCKED",
+      "summary": "Post-action verification blocked by governance DENY.",
+      "updated_at": "2026-11-02T19:14:31.285260Z"
+    },
+    {
+      "stage": "EVIDENCE",
+      "status": "COMPLETED",
+      "summary": "Audit and stage evidence captured.",
+      "updated_at": "2026-11-02T19:14:31.285263Z"
+    }
+  ],
+  "evidence_count": 13,
+  "cloudwatch_event_count": 20,
+  "agent1_cloudwatch_event_count": 6,
+  "agent2_cloudwatch_event_count": 14,
+  "synthetic": true
+}

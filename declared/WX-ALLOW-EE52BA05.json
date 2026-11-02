@@ -1,0 +1,10 @@
+{
+  "run_id": "WX-ALLOW-EE52BA05",
+  "trace_id": "TRACE-ALLOW-EE52BA05",
+  "scenario": "allow",
+  "approval_instruction": "NONE",
+  "weather_event": "HIGH_WIND",
+  "severity": "LOW",
+  "affected_region": "Region-B",
+  "synthetic": true
+}

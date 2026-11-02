@@ -22,6 +22,8 @@ RUNTIME_INFO_PATH="$PROJECT_ROOT/dist/agent2_runtime_info.json"
 SCENARIO="pause"
 APPROVAL_MODE="NONE"
 RUN_ALL="0"
+DECLARED_RUN_ID=""
+DECLARED_TRACE_ID=""
 
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -40,6 +42,14 @@ while [ $# -gt 0 ]; do
         --all-scenarios)
             RUN_ALL="1"
             shift
+            ;;
+        --run-id)
+            DECLARED_RUN_ID="$2"
+            shift 2
+            ;;
+        --trace-id)
+            DECLARED_TRACE_ID="$2"
+            shift 2
             ;;
         *)
             echo "Unknown argument: $1" >&2
@@ -97,7 +107,7 @@ run_single_handoff() {
     a2_in="$(mktemp "${TMPDIR:-/tmp}/a2_in.XXXXXX.json")"
     a2_out="$(mktemp "${TMPDIR:-/tmp}/a2_out.XXXXXX.json")"
 
-    python3 - "$scen" "$a1_in" <<'PYBUILD'
+    python3 - "$scen" "$a1_in" "$DECLARED_RUN_ID" "$DECLARED_TRACE_ID" <<'PYBUILD'
 import json
 from pathlib import Path
 import sys
@@ -106,13 +116,15 @@ import uuid
 scen = sys.argv[1]
 out_path = Path(sys.argv[2])
 suffix = uuid.uuid4().hex[:8].upper()
+declared_run_id = sys.argv[3]
+declared_trace_id = sys.argv[4]
 
 if scen == "allow":
     payload = {
         "schema_version": "0.1",
         "team_code": "TEAM_PENDING",
-        "run_id": f"WX-ALLOW-{suffix}",
-        "trace_id": f"TRACE-ALLOW-{suffix}",
+        "run_id": declared_run_id or f"WX-ALLOW-{suffix}",
+        "trace_id": declared_trace_id or f"TRACE-ALLOW-{suffix}",
         "data_source": "synthetic",
         "weather_event": "HIGH_WIND",
         "severity": "LOW",
@@ -122,8 +134,8 @@ elif scen == "deny":
     payload = {
         "schema_version": "0.1",
         "team_code": "TEAM_PENDING",
-        "run_id": f"WX-DENY-{suffix}",
-        "trace_id": f"TRACE-DENY-{suffix}",
+        "run_id": declared_run_id or f"WX-DENY-{suffix}",
+        "trace_id": declared_trace_id or f"TRACE-DENY-{suffix}",
         "data_source": "synthetic",
         "weather_event": "SEVERE_STORM",
         "severity": "HIGH",
@@ -133,8 +145,8 @@ else:
     payload = {
         "schema_version": "0.1",
         "team_code": "TEAM_PENDING",
-        "run_id": f"WX-PAUSE-{suffix}",
-        "trace_id": f"TRACE-PAUSE-{suffix}",
+        "run_id": declared_run_id or f"WX-PAUSE-{suffix}",
+        "trace_id": declared_trace_id or f"TRACE-PAUSE-{suffix}",
         "data_source": "synthetic",
         "weather_event": "SEVERE_STORM",
         "severity": "HIGH",

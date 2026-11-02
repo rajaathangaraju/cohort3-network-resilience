@@ -1,0 +1,44 @@
+{
+  "runs": [
+    {
+      "scenario": "deny",
+      "approval_instruction": "NONE",
+      "run_id": "WX-DENY-5614F523",
+      "trace_id": "TRACE-DENY-5614F523",
+      "declaration": "s3://cohort3-agentcore-835156611439/declared/WX-DENY-5614F523.json",
+      "evidence": "s3://cohort3-agentcore-835156611439/evidence/WX-DENY-5614F523/"
+    },
+    {
+      "scenario": "allow",
+      "approval_instruction": "NONE",
+      "run_id": "WX-ALLOW-4D2494BB",
+      "trace_id": "TRACE-ALLOW-4D2494BB",
+      "declaration": "s3://cohort3-agentcore-835156611439/declared/WX-ALLOW-4D2494BB.json",
+      "evidence": "s3://cohort3-agentcore-835156611439/evidence/WX-ALLOW-4D2494BB/"
+    },
+    {
+      "scenario": "pause",
+      "approval_instruction": "NONE",
+      "run_id": "WX-PAUSE-43754379",
+      "trace_id": "TRACE-PAUSE-43754379",
+      "declaration": "s3://cohort3-agentcore-835156611439/declared/WX-PAUSE-43754379.json",
+      "evidence": "s3://cohort3-agentcore-835156611439/evidence/WX-PAUSE-43754379/"
+    },
+    {
+      "scenario": "pause",
+      "approval_instruction": "APPROVED",
+      "run_id": "WX-PAUSE-68C6BBA8",
+      "trace_id": "TRACE-PAUSE-68C6BBA8",
+      "declaration": "s3://cohort3-agentcore-835156611439/declared/WX-PAUSE-68C6BBA8.json",
+      "evidence": "s3://cohort3-agentcore-835156611439/evidence/WX-PAUSE-68C6BBA8/"
+    },
+    {
+      "scenario": "pause",
+      "approval_instruction": "REJECTED",
+      "run_id": "WX-PAUSE-AFFE9762",
+      "trace_id": "TRACE-PAUSE-AFFE9762",
+      "declaration": "s3://cohort3-agentcore-835156611439/declared/WX-PAUSE-AFFE9762.json",
+      "evidence": "s3://cohort3-agentcore-835156611439/evidence/WX-PAUSE-AFFE9762/"
+    }
+  ]
+}
