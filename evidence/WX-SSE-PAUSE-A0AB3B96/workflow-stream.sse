@@ -1,0 +1,86 @@
+: heartbeat
+
+id: EVT-C786E503D2
+event: connected
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-C786E503D2","event_type":"connected","sequence":1,"timestamp":"2026-11-02T08:35:22.280284Z","stage":"WEATHER","status":"IN_PROGRESS","source":"workflow_sse_orchestrator","message":"SSE workflow stream connected.","data":{"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96"},"terminal":false,"synthetic":true}
+
+id: EVT-5360057FD6
+event: run_started
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-5360057FD6","event_type":"run_started","sequence":2,"timestamp":"2026-11-02T08:35:22.280670Z","stage":"WEATHER","status":"IN_PROGRESS","source":"workflow_sse_orchestrator","message":"Workflow run 'WX-SSE-PAUSE-A0AB3B96' started in mode=aws_live.","data":{"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","data_mode":"aws_live"},"terminal":false,"synthetic":true}
+
+id: EVT-28C97023AE
+event: agent1_started
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-28C97023AE","event_type":"agent1_started","sequence":3,"timestamp":"2026-11-02T08:35:22.280968Z","stage":"WEATHER","status":"IN_PROGRESS","source":"weather_network_intelligence","message":"Invoking Agent 1 (Weather & Network Intelligence Agent).","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Demo-Region-A"},"terminal":false,"synthetic":true}
+
+id: EVT-0AF9278B5B
+event: weather_received
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-0AF9278B5B","event_type":"weather_received","sequence":4,"timestamp":"2026-11-02T08:35:22.281226Z","stage":"WEATHER","status":"IN_PROGRESS","source":"weather_network_intelligence","message":"Weather event payload received by Agent 1.","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Demo-Region-A"},"terminal":false,"synthetic":true}
+
+id: EVT-D15489A75F
+event: weather_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-D15489A75F","event_type":"weather_completed","sequence":5,"timestamp":"2026-11-02T08:35:25.142688Z","stage":"WEATHER","status":"COMPLETED","source":"weather_network_intelligence","message":"Weather alert 'SEVERE_STORM' (HIGH) validated.","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Demo-Region-A"},"terminal":false,"synthetic":true}
+
+id: EVT-0C1665F5C8
+event: geo_correlation_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-0C1665F5C8","event_type":"geo_correlation_completed","sequence":6,"timestamp":"2026-11-02T08:35:25.143213Z","stage":"GEO_CORRELATION","status":"COMPLETED","source":"weather_network_intelligence","message":"Geographic correlation completed for region 'Demo-Region-A'.","data":{"affected_region":"Demo-Region-A","affected_area":{"south":12.8,"north":13.2,"west":77.4,"east":77.8}},"terminal":false,"synthetic":true}
+
+id: EVT-EC25197133
+event: asset_mapping_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-EC25197133","event_type":"asset_mapping_completed","sequence":7,"timestamp":"2026-11-02T08:35:25.143596Z","stage":"ASSET_IMPACT","status":"COMPLETED","source":"weather_network_intelligence","message":"Mapped 2 network element(s) in 'Demo-Region-A'.","data":{"affected_ne_count":2,"affected_network_elements":["NE-101","NE-102"]},"terminal":false,"synthetic":true}
+
+id: EVT-584E7D2D42
+event: agent1_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-584E7D2D42","event_type":"agent1_completed","sequence":8,"timestamp":"2026-11-02T08:35:25.143883Z","stage":"ASSET_IMPACT","status":"COMPLETED","source":"weather_network_intelligence","message":"Agent 1 completed NetworkRiskEvent generation.","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Demo-Region-A","affected_ne_count":2,"affected_network_elements":["NE-101","NE-102"]},"terminal":false,"synthetic":true}
+
+id: EVT-5D9963AE06
+event: agent2_started
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-5D9963AE06","event_type":"agent2_started","sequence":9,"timestamp":"2026-11-02T08:35:25.144140Z","stage":"ASSET_IMPACT","status":"IN_PROGRESS","source":"network_resilience","message":"Invoking Agent 2 (Network Resilience & Governed Action Agent).","data":{"affected_network_elements":["NE-101","NE-102"]},"terminal":false,"synthetic":true}
+
+id: EVT-84BEFBFAEE
+event: inventory_enriched
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-84BEFBFAEE","event_type":"inventory_enriched","sequence":10,"timestamp":"2026-11-02T08:35:30.143404Z","stage":"ASSET_IMPACT","status":"COMPLETED","source":"network_resilience","message":"Enriched 2 network element(s); unresolved=[].","data":{"resolved_count":2,"unresolved_network_elements":[]},"terminal":false,"synthetic":true}
+
+id: EVT-52005E8628
+event: service_impact_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-52005E8628","event_type":"service_impact_completed","sequence":11,"timestamp":"2026-11-02T08:35:30.144057Z","stage":"ASSET_IMPACT","status":"COMPLETED","source":"network_resilience","message":"Service risk is HIGH: 4 affected service(s) across 2 resolved element(s) (1 CRITICAL, 1 HIGH; redundancy_available_for_all=True; unresolved=0).","data":{"affected_service_count":4,"affected_services":["MOBILE_DATA","VOICE","IP_TRANSIT","ENTERPRISE_CONNECTIVITY"],"critical_network_element_count":1,"service_risk":"HIGH"},"terminal":false,"synthetic":true}
+
+id: EVT-5731FCF427
+event: risk_assessed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-5731FCF427","event_type":"risk_assessed","sequence":12,"timestamp":"2026-11-02T08:35:30.144441Z","stage":"RISK_ASSESSMENT","status":"COMPLETED","source":"network_resilience","message":"Risk assessment completed: overall_risk=CRITICAL (score=85).","data":{"risk_score":85,"overall_risk":"CRITICAL","weather_risk":"HIGH","network_risk":"HIGH","service_risk":"HIGH","risk_reasons":["Weather severity HIGH contributed +40 points.","Highest affected asset criticality CRITICAL (NE-101) contributed +20 points.","Affected network element count (2) contributed +10 points.","Service exposure (4 affected service(s)) contributed +15 points.","Redundancy is available for all resolved elements (+0 points).","All requested network elements resolved in inventory (+0 points)."]},"terminal":false,"synthetic":true}
+
+id: EVT-A6BEB492F6
+event: bedrock_reasoning_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-A6BEB492F6","event_type":"bedrock_reasoning_completed","sequence":13,"timestamp":"2026-11-02T08:35:30.144727Z","stage":"RECOMMENDATION","status":"COMPLETED","source":"network_resilience","message":"AI explanation used deterministic fallback.","data":{"model_id":"us.anthropic.claude-haiku-4-5-20251001-v1:0","result_status":"FALLBACK_USED","fallback_used":true,"situation_summary":"SEVERE_STORM (HIGH) in Demo-Region-A affects 2 network element(s): ['NE-101', 'NE-102'].","risk_explanation":"Deterministic risk score is 85/100 (CRITICAL), with network_risk=HIGH, service_risk=HIGH, and exposed services=['MOBILE_DATA', 'VOICE', 'IP_TRANSIT', 'ENTERPRISE_CONNECTIVITY'].","recommendation_rationale":"Overall risk is CRITICAL (score=85); immediate preventive action 'REROUTE_TRAFFIC' is recommended for ['NE-101', 'NE-102'].","operator_summary":"Recommended action 'REROUTE_TRAFFIC' for targets ['NE-101', 'NE-102'] under deterministic governance controls.","error_reason":"IntegrationError: Bedrock converse invocation failed (SSLError): SSL validation failed for https://bedrock-runtime.us-east-2.amazonaws.com/model/us.anthropic.claude-haiku-4-5-20251001-v1%3A0/converse [Errno 2] No such file or directory"},"terminal":false,"synthetic":true}
+
+id: EVT-EBC01C6BC8
+event: recommendation_generated
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-EBC01C6BC8","event_type":"recommendation_generated","sequence":14,"timestamp":"2026-11-02T08:35:30.144998Z","stage":"RECOMMENDATION","status":"COMPLETED","source":"network_resilience","message":"Generated preventive recommendation 'REROUTE_TRAFFIC'.","data":{"recommendation_id":"REC-8302FF4F45","action":"REROUTE_TRAFFIC","target_network_elements":["NE-101","NE-102"],"rationale":"Overall risk is CRITICAL (score=85); immediate preventive action 'REROUTE_TRAFFIC' is recommended for ['NE-101', 'NE-102'].","expected_outcome":"Proactively isolate or reroute critical services away from severe weather impact.","state_changing":true,"human_approval_required":true,"confidence":0.92},"terminal":false,"synthetic":true}
+
+id: EVT-B98D3B4E91
+event: governance_decided
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-B98D3B4E91","event_type":"governance_decided","sequence":15,"timestamp":"2026-11-02T08:35:30.145303Z","stage":"GOVERNANCE","status":"PAUSED","source":"PolicyEngine","message":"Governance decision: PAUSE (Human approval is required before a state-changing or governed action.)","data":{"decision":"PAUSE","reason":"Human approval is required before a state-changing or governed action.","matched_policy_rules":["POLICY-PAUSE-STATE-CHANGING-101","POLICY-PAUSE-HUMAN-APPROVAL-102"]},"terminal":false,"synthetic":true}
+
+id: EVT-A4BEC0D3CF
+event: approval_rejected
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-A4BEC0D3CF","event_type":"approval_rejected","sequence":16,"timestamp":"2026-11-02T08:35:30.145574Z","stage":"APPROVAL","status":"BLOCKED","source":"ApprovalWorkflow","message":"Human approval was REJECTED; execution remains blocked.","data":{"approval_id":"APR-CDA814ADBA","status":"REJECTED","approver_reference":"demo-approver"},"terminal":false,"synthetic":true}
+
+id: EVT-CB22580631
+event: action_blocked
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-CB22580631","event_type":"action_blocked","sequence":17,"timestamp":"2026-11-02T08:35:30.145834Z","stage":"ACTION","status":"BLOCKED","source":"MockRemediationAdapter","message":"Execution blocked: human approval status is REJECTED.","data":{"approval":"REJECTED","execution":"BLOCKED"},"terminal":false,"synthetic":true}
+
+id: EVT-443D7E655F
+event: verification_blocked
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-443D7E655F","event_type":"verification_blocked","sequence":18,"timestamp":"2026-11-02T08:35:30.146108Z","stage":"VERIFICATION","status":"BLOCKED","source":"SyntheticVerificationService","message":"Verification blocked because approval status is REJECTED.","data":{"verification":"BLOCKED","reasons":["Synthetic verification blocked because human approval status was REJECTED."]},"terminal":false,"synthetic":true}
+
+id: EVT-9BF3C03A5E
+event: evidence_captured
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-9BF3C03A5E","event_type":"evidence_captured","sequence":19,"timestamp":"2026-11-02T08:35:30.146409Z","stage":"EVIDENCE","status":"COMPLETED","source":"AuditRecorder","message":"Captured 10 ordered workflow evidence record(s).","data":{"evidence_count":10,"cloudwatch_event_count":0},"terminal":false,"synthetic":true}
+
+id: EVT-BF77FC1083
+event: agent2_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-BF77FC1083","event_type":"agent2_completed","sequence":20,"timestamp":"2026-11-02T08:35:30.146671Z","stage":"EVIDENCE","status":"COMPLETED","source":"network_resilience","message":"Agent 2 completed resilience analysis and governance evaluation.","data":{"overall_risk":"CRITICAL","risk_score":85,"governance_decision":"PAUSE","approval_status":"REJECTED","execution_status":"BLOCKED","verification_status":"BLOCKED"},"terminal":false,"synthetic":true}
+
+id: EVT-1FDEE6CBD4
+event: run_completed
+data: {"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","schema_version":"0.1","event_id":"EVT-1FDEE6CBD4","event_type":"run_completed","sequence":21,"timestamp":"2026-11-02T08:35:30.146943Z","stage":"EVIDENCE","status":"APPROVAL_REJECTED_BLOCKED","source":"workflow_sse_orchestrator","message":"Workflow stream completed with status=APPROVAL_REJECTED_BLOCKED.","data":{"run_id":"WX-SSE-PAUSE-A0AB3B96","trace_id":"TRACE-SSE-PAUSE-A0AB3B96","workflow_status":"APPROVAL_REJECTED_BLOCKED","overall_risk":"CRITICAL","governance_decision":"PAUSE","approval_status":"REJECTED","execution_status":"BLOCKED","verification_status":"BLOCKED","approval":"REJECTED","execution":"BLOCKED","verification":"BLOCKED","evidence_count":10,"cloudwatch_event_count":0},"terminal":true,"synthetic":true}
+

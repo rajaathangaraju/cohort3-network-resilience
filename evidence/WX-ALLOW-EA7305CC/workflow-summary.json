@@ -1,0 +1,163 @@
+{
+  "run_id": "WX-ALLOW-EA7305CC",
+  "trace_id": "TRACE-ALLOW-EA7305CC",
+  "schema_version": "0.1",
+  "team_code": "TEAM_PENDING",
+  "risk_assessment": {
+    "risk_score": 40,
+    "overall_risk": "MEDIUM",
+    "weather_risk": "LOW",
+    "network_risk": "MEDIUM",
+    "service_risk": "MEDIUM",
+    "risk_reasons": [
+      "Weather severity LOW contributed +10 points.",
+      "Highest affected asset criticality MEDIUM (NE-202) contributed +10 points.",
+      "Affected network element count (2) contributed +10 points.",
+      "Service exposure (2 affected service(s)) contributed +10 points.",
+      "Redundancy is available for all resolved elements (+0 points).",
+      "All requested network elements resolved in inventory (+0 points)."
+    ],
+    "unresolved_network_elements": []
+  },
+  "ai_reasoning": {
+    "run_id": "WX-ALLOW-EA7305CC",
+    "trace_id": "TRACE-ALLOW-EA7305CC",
+    "model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "operation": "generate_resilience_explanation",
+    "start_status": "STARTED",
+    "result_status": "SUCCEEDED",
+    "fallback_used": false,
+    "error_reason": null,
+    "recorded_at": "2026-11-02T13:52:41.338387Z",
+    "reasoning": {
+      "situation_summary": "A LOW severity HIGH_WIND weather event is affecting Region-B, with impact to network elements NE-201 (LOW criticality) and NE-202 (MEDIUM criticality). Two services are potentially affected: INTERNAL_TELEMETRY and REGIONAL_VOICE. No network elements are currently unresolved.",
+      "risk_explanation": "The deterministic risk assessment yields a MEDIUM overall risk score of 40. This reflects the combination of LOW weather severity, LOW-to-MEDIUM asset criticalities, and the service dependencies of the affected elements. While individual component criticalities are not high, the breadth of service impact (two services) and the MEDIUM criticality of NE-202 elevate the composite risk profile to MEDIUM.",
+      "recommendation_rationale": "The INCREASE_MONITORING action is recommended because the risk score and service exposure warrant heightened visibility without requiring immediate corrective network changes. Increased polling frequency and alarm sensitivity on NE-201 and NE-202 will enable rapid detection of any performance degradation or service impact as the weather event evolves, allowing the NOC to respond proactively if conditions worsen.",
+      "operator_summary": "Monitor NE-201 and NE-202 closely during this LOW severity high-wind event in Region-B. Increase polling intervals and lower alarm thresholds on these elements to catch any emerging issues affecting INTERNAL_TELEMETRY and REGIONAL_VOICE services. No immediate preventive network actions are required at this time; escalate to engineering if performance metrics degrade or alarms trigger."
+    }
+  },
+  "recommendation": {
+    "recommendation_id": "REC-143BB783A3",
+    "action": "INCREASE_MONITORING",
+    "target_network_elements": [
+      "NE-201",
+      "NE-202"
+    ],
+    "rationale": "Overall risk is MEDIUM (score=40); heightened polling and alarm sensitivity recommended for affected network elements.",
+    "expected_outcome": "Detect early degradation on exposed network elements without state change.",
+    "state_changing": false,
+    "human_approval_required": false,
+    "confidence": 0.9,
+    "generated_at": "2026-11-02T13:52:38.542743Z"
+  },
+  "governance": {
+    "decision": "ALLOW",
+    "reason": "Non-state-changing monitoring action is allowed by governance policy.",
+    "matched_policy_rules": [
+      "POLICY-ALLOW-NON-STATE-CHANGING-201"
+    ]
+  },
+  "approval": {
+    "status": "NOT_REQUIRED",
+    "approval_id": "APR-96F26909D0",
+    "requested_at": "2026-11-02T13:52:41.339871Z",
+    "decided_at": "2026-11-02T13:52:41.339871Z",
+    "approver_reference": null,
+    "comments": "Human approval is not required for this governance decision."
+  },
+  "execution": {
+    "status": "EXECUTED",
+    "action_id": "ACT-C372B99C18",
+    "action": "START_ENHANCED_MONITORING",
+    "target_network_elements": [
+      "NE-201",
+      "NE-202"
+    ],
+    "started_at": "2026-11-02T13:52:41.340090Z",
+    "completed_at": "2026-11-02T13:52:41.340091Z",
+    "result_message": "Synthetic action 'START_ENHANCED_MONITORING' executed for targets ['NE-201', 'NE-202'].",
+    "changed_state": false,
+    "synthetic": true
+  },
+  "verification": {
+    "status": "PASSED",
+    "verification_id": "VER-90F3216357",
+    "action_id": "ACT-C372B99C18",
+    "action_result_verified": true,
+    "asset_state": "STABLE_SYNTHETIC",
+    "post_action_check": "SYNTHETIC_POST_CHECK_OK",
+    "outcome_verified": true,
+    "verification_reasons": [
+      "Synthetic post-action check passed for simulated action 'START_ENHANCED_MONITORING'."
+    ],
+    "verified_at": "2026-11-02T13:52:41.340268Z",
+    "synthetic": true
+  },
+  "workflow_stages": [
+    {
+      "stage": "WEATHER",
+      "status": "COMPLETED",
+      "summary": "Weather alert validated and ingested.",
+      "updated_at": "2026-11-02T13:52:41.340531Z"
+    },
+    {
+      "stage": "GEO_CORRELATION",
+      "status": "COMPLETED",
+      "summary": "Geographic correlation and bounding box validated.",
+      "updated_at": "2026-11-02T13:52:41.340535Z"
+    },
+    {
+      "stage": "ASSET_IMPACT",
+      "status": "COMPLETED",
+      "summary": "Network element enrichment and service impact completed.",
+      "updated_at": "2026-11-02T13:52:41.340538Z"
+    },
+    {
+      "stage": "RISK_ASSESSMENT",
+      "status": "COMPLETED",
+      "summary": "Deterministic 0-100 risk assessment completed.",
+      "updated_at": "2026-11-02T13:52:41.340541Z"
+    },
+    {
+      "stage": "RECOMMENDATION",
+      "status": "COMPLETED",
+      "summary": "Preventive action recommendation generated.",
+      "updated_at": "2026-11-02T13:52:41.340544Z"
+    },
+    {
+      "stage": "GOVERNANCE",
+      "status": "COMPLETED",
+      "summary": "Governance policy evaluated to ALLOW.",
+      "updated_at": "2026-11-02T13:52:41.340548Z"
+    },
+    {
+      "stage": "APPROVAL",
+      "status": "COMPLETED",
+      "summary": "Human approval not required for ALLOW decision.",
+      "updated_at": "2026-11-02T13:52:41.340551Z"
+    },
+    {
+      "stage": "ACTION",
+      "status": "COMPLETED",
+      "summary": "Controlled mock action status: EXECUTED.",
+      "updated_at": "2026-11-02T13:52:41.340555Z"
+    },
+    {
+      "stage": "VERIFICATION",
+      "status": "COMPLETED",
+      "summary": "Synthetic verification status: PASSED.",
+      "updated_at": "2026-11-02T13:52:41.340558Z"
+    },
+    {
+      "stage": "EVIDENCE",
+      "status": "COMPLETED",
+      "summary": "Audit and stage evidence captured.",
+      "updated_at": "2026-11-02T13:52:41.340561Z"
+    }
+  ],
+  "evidence_count": 13,
+  "cloudwatch_event_count": 0,
+  "agent1_cloudwatch_event_count": 0,
+  "agent2_cloudwatch_event_count": 0,
+  "synthetic": true
+}

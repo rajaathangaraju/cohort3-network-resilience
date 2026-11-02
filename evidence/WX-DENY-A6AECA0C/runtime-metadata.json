@@ -1,0 +1,16 @@
+{
+  "run_id": "WX-DENY-A6AECA0C",
+  "trace_id": "TRACE-DENY-A6AECA0C",
+  "scenario": "deny",
+  "approval_mode": "NONE",
+  "aws_region": "us-east-2",
+  "agent1_runtime_arn": "arn:aws:bedrock-agentcore:us-east-2:835156611439:runtime/cohort3_weather_network_intelligence-aRoVQk71fj",
+  "agent2_runtime_arn": "arn:aws:bedrock-agentcore:us-east-2:835156611439:runtime/cohort3_network_resilience-ph5xzN4X1u",
+  "agent1_session_id": "session-a1-b9da9ba4-8bdd-4152-a0b2-4e3df05fd624-62036f94",
+  "agent2_session_id": "session-a2-dd01ac92-b096-4a05-a180-50bce2a5d95c-561c4a32",
+  "bedrock_model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "bedrock_result_status": "FALLBACK_USED",
+  "bedrock_fallback_used": true,
+  "bedrock_error_reason": "IntegrationError: Bedrock converse invocation failed (SSLError): SSL validation failed for https://bedrock-runtime.us-east-2.amazonaws.com/model/us.anthropic.claude-haiku-4-5-20251001-v1%3A0/converse [Errno 2] No such file or directory",
+  "recorded_at": "2026-11-02T07:48:27.092239+00:00"
+}

@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cohort3-network-resilience"
+version = "0.1.0"
+description = "AWS Bedrock AgentCore multi-agent network resilience scaffold"
+requires-python = ">=3.13"
+dependencies = [
+    "bedrock-agentcore>=1.25.0",
+    "boto3>=1.35.0",
+    "certifi>=2024.6.0",
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.6.0",
+    "structlog>=24.4.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3.0", "pytest-cov>=6.0.0", "ruff>=0.8.0", "mypy>=1.13.0"]
+dashboard = [
+    "streamlit>=1.50.0",
+    "requests>=2.32.0",
+    "pandas>=2.2.0",
+    "pydeck>=0.9.1",
+    "openpyxl>=3.1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "agents",
+    "command_center",
+    "common",
+    "contracts",
+    "governance",
+    "integrations",
+    "orchestration",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+extend-exclude = [
+    "dist",
+    "build",
+    ".venv",
+    "venv",
+    "node_modules",
+    "evidence",
+    "streamlit_ui/logs",
+    "streamlit_ui/runtime",
+    "agents/weather_network_intelligence/forecast_prototype.py",
+    "agents/weather_network_intelligence/tests",
+]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "C4", "PIE", "PT", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"streamlit_ui/dashboard.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+ignore_missing_imports = true
+exclude = [
+    "^dist[\\\\/]",
+    "^build[\\\\/]",
+    "^streamlit_ui[\\\\/]logs[\\\\/]",
+    "^streamlit_ui[\\\\/]runtime[\\\\/]",
+    "^agents[\\\\/]weather_network_intelligence[\\\\/]forecast_prototype\\.py$",
+    "^agents[\\\\/]weather_network_intelligence[\\\\/]tests[\\\\/]",
+]

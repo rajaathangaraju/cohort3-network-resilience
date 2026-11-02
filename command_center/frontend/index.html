@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NETWORK RESILIENCE COMMAND CENTER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0b1220; color: #e2e8f0; margin: 0; padding: 24px; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 16px; }
+    .pipeline { display: flex; gap: 12px; margin: 16px 0; font-weight: 600; color: #38bdf8; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+    .panel { background: #111827; border: 1px solid #1f2937; border-radius: 8px; padding: 16px; }
+    .actions { display: flex; gap: 8px; margin: 16px 0; }
+    button { background: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+    pre { white-space: pre-wrap; word-break: break-word; font-size: 12px; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NETWORK RESILIENCE COMMAND CENTER</h1>
+    <div id="header-meta">Run ID: - | Overall Risk: - | Status: -</div>
+  </header>
+  <div class="pipeline">WEATHER -&gt; GEO -&gt; ASSET -&gt; RISK -&gt; ACTION -&gt; VERIFY -&gt; EVIDENCE</div>
+  <div class="actions">
+    <button onclick="startScenario('deny')">Run DENY</button>
+    <button onclick="startScenario('allow')">Run ALLOW</button>
+    <button onclick="startScenario('pause')">Run PAUSE</button>
+    <button onclick="decideRun('approve')">APPROVE</button>
+    <button onclick="decideRun('reject')">REJECT</button>
+    <button onclick="loadEvidence()">VIEW EVIDENCE</button>
+  </div>
+  <div class="panel" id="governance-banner">Policy Decision: - | Approval: - | Execution: -</div>
+  <div class="grid" id="panels"></div>
+  <script>
+    const API_BASE_URL = window.COMMAND_CENTER_API_BASE_URL || "http://127.0.0.1:8000";
+    let currentRunId = null;
+    let currentTraceId = null;
+
+    function renderView(view) {
+      currentRunId = view.header.run_id;
+      currentTraceId = view.header.trace_id;
+      document.getElementById("header-meta").textContent =
+        `Run ID: ${view.header.run_id} | Overall Risk: ${view.header.overall_risk} | Status: ${view.header.workflow_status}`;
+      document.getElementById("governance-banner").textContent =
+        `Policy Decision: ${view.governance.decision} | Approval: ${view.approval.status} | Execution: ${view.execution.status}`;
+      const sections = {
+        "Weather Alert": view.weather,
+        "Geo Correlation": view.geo,
+        "Asset Impact": view.assets,
+        "Risk Assessment": view.risk,
+        "Preventive Recommendation": view.recommendation,
+        "Governance": view.governance,
+        "Approval": view.approval,
+        "Execution": view.execution,
+        "Verification": view.verification,
+        "Evidence": view.evidence,
+        "Audit Trace": view.audit_trace
+      };
+      const container = document.getElementById("panels");
+      container.innerHTML = "";
+      for (const [title, content] of Object.entries(sections)) {
+        const card = document.createElement("div");
+        card.className = "panel";
+        card.innerHTML = `<h3>${title}</h3><pre>${JSON.stringify(content, null, 2)}</pre>`;
+        container.appendChild(card);
+      }
+    }
+
+    async function startScenario(scenario) {
+      const resp = await fetch(`${API_BASE_URL}/api/runs`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ scenario })
+      });
+      renderView(await resp.json());
+    }
+
+    async function decideRun(action) {
+      if (!currentRunId) return;
+      const resp = await fetch(`${API_BASE_URL}/api/runs/${currentRunId}/${action}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ approver_reference: "demo-approver" })
+      });
+      renderView(await resp.json());
+    }
+
+    async function loadEvidence() {
+      if (!currentRunId) return;
+      const resp = await fetch(
+        `${API_BASE_URL}/api/runs/${currentRunId}/evidence?trace_id=${encodeURIComponent(currentTraceId || "")}`
+      );
+      const data = await resp.json();
+      alert(`Loaded ${data.evidence_count} evidence record(s) for run_id=${data.run_id}`);
+    }
+  </script>
+</body>
+</html>

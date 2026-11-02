@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DRAFT Agent 1 forecast handoff (not shared NetworkRiskEvent)",
+  "description": "Weather exposure only. Not official alerts, service risk, or an action authorisation.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "agent1-handoff-0.1"
+    },
+    "event_type": {
+      "const": "WEATHER_NETWORK_ASSESSMENT"
+    },
+    "team_code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "producer": {
+      "const": "weather-network-agent"
+    },
+    "consumer": {
+      "const": "network-resilience-agent"
+    },
+    "assessment_status": {
+      "enum": [
+        "INCOMPLETE",
+        "ELEVATED_WEATHER_RISK",
+        "NO_ELEVATED_WEATHER_RISK"
+      ]
+    },
+    "official_warning": {
+      "const": false
+    },
+    "action_requested": {
+      "const": false
+    },
+    "delivery_status": {
+      "const": "NOT_SENT"
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "weather",
+        "inventory",
+        "attribution"
+      ],
+      "properties": {
+        "weather": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inventory": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attribution": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "risk_rule": {
+      "const": {
+        "id": "demo-weather-risk-v1",
+        "validated": false,
+        "high": {
+          "hourly_precipitation_mm": 10,
+          "gust_kmh": 60
+        },
+        "medium": {
+          "hourly_precipitation_mm": 5,
+          "gust_kmh": 40
+        },
+        "logic": "Either threshold in any returned forecast hour",
+        "meaning": "Weather exposure screening; not service impact"
+      }
+    },
+    "elevated_risk_network_elements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "unknown_risk_network_elements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "element_assessments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/element"
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "assessment_file",
+        "audit_file"
+      ],
+      "properties": {
+        "scope": {
+          "const": "local_run_directory"
+        },
+        "assessment_file": {
+          "const": "assessment.json"
+        },
+        "audit_file": {
+          "const": "audit.jsonl"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "element": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "network_element",
+        "risk"
+      ],
+      "properties": {
+        "network_element": {
+          "type": "object",
+          "required": [
+            "ne_id",
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "ne_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "latitude": {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "longitude": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "element_type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "criticality": {
+              "type": "string",
+              "minLength": 1
+            },
+            "associated_service_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "risk": {
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "UNKNOWN"
+          ]
+        },
+        "max_hourly_precipitation_mm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max_wind_gust_kmh": {
+          "type": "number",
+          "minimum": 0
+        },
+        "input_type": {
+          "type": "string"
+        },
+        "request_url": {
+          "type": "string"
+        },
+        "raw_forecast_file": {
+          "type": "string"
+        },
+        "retrieved_at": {
+          "type": "string"
+        },
+        "forecast_start_utc": {
+          "type": "string"
+        },
+        "forecast_last_hour_utc": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "provider_grid_coordinates": {
+          "type": "object",
+          "required": [
+            "latitude",
+            "longitude"
+          ],
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "risk": {
+                "const": "UNKNOWN"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "error"
+            ]
+          },
+          "else": {
+            "required": [
+              "max_hourly_precipitation_mm",
+              "max_wind_gust_kmh"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_type",
+    "team_code",
+    "run_id",
+    "trace_id",
+    "created_at",
+    "producer",
+    "consumer",
+    "assessment_status",
+    "official_warning",
+    "action_requested",
+    "delivery_status",
+    "sources",
+    "risk_rule",
+    "elevated_risk_network_elements",
+    "unknown_risk_network_elements",
+    "element_assessments",
+    "evidence"
+  ]
+}

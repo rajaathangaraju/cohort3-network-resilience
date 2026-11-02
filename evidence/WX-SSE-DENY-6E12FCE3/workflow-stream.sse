@@ -1,0 +1,82 @@
+: heartbeat
+
+id: EVT-63C8F1CC3D
+event: connected
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-63C8F1CC3D","event_type":"connected","sequence":1,"timestamp":"2026-11-02T08:34:53.123005Z","stage":"WEATHER","status":"IN_PROGRESS","source":"workflow_sse_orchestrator","message":"SSE workflow stream connected.","data":{"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3"},"terminal":false,"synthetic":true}
+
+id: EVT-D91699D5DB
+event: run_started
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-D91699D5DB","event_type":"run_started","sequence":2,"timestamp":"2026-11-02T08:34:53.123529Z","stage":"WEATHER","status":"IN_PROGRESS","source":"workflow_sse_orchestrator","message":"Workflow run 'WX-SSE-DENY-6E12FCE3' started in mode=aws_live.","data":{"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","data_mode":"aws_live"},"terminal":false,"synthetic":true}
+
+id: EVT-D78A44CB45
+event: agent1_started
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-D78A44CB45","event_type":"agent1_started","sequence":3,"timestamp":"2026-11-02T08:34:53.123876Z","stage":"WEATHER","status":"IN_PROGRESS","source":"weather_network_intelligence","message":"Invoking Agent 1 (Weather & Network Intelligence Agent).","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Region-C"},"terminal":false,"synthetic":true}
+
+id: EVT-DB866936F9
+event: weather_received
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-DB866936F9","event_type":"weather_received","sequence":4,"timestamp":"2026-11-02T08:34:53.124167Z","stage":"WEATHER","status":"IN_PROGRESS","source":"weather_network_intelligence","message":"Weather event payload received by Agent 1.","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Region-C"},"terminal":false,"synthetic":true}
+
+id: EVT-3FACFB5048
+event: weather_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-3FACFB5048","event_type":"weather_completed","sequence":5,"timestamp":"2026-11-02T08:34:55.605275Z","stage":"WEATHER","status":"COMPLETED","source":"weather_network_intelligence","message":"Weather alert 'SEVERE_STORM' (HIGH) validated.","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Region-C"},"terminal":false,"synthetic":true}
+
+id: EVT-D6331D6546
+event: geo_correlation_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-D6331D6546","event_type":"geo_correlation_completed","sequence":6,"timestamp":"2026-11-02T08:34:55.605790Z","stage":"GEO_CORRELATION","status":"COMPLETED","source":"weather_network_intelligence","message":"Geographic correlation completed for region 'Region-C'.","data":{"affected_region":"Region-C","affected_area":{"south":12.8,"north":13.2,"west":77.4,"east":77.8}},"terminal":false,"synthetic":true}
+
+id: EVT-5C59C40BB6
+event: asset_mapping_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-5C59C40BB6","event_type":"asset_mapping_completed","sequence":7,"timestamp":"2026-11-02T08:34:55.606153Z","stage":"ASSET_IMPACT","status":"COMPLETED","source":"weather_network_intelligence","message":"Mapped 4 network element(s) in 'Region-C'.","data":{"affected_ne_count":4,"affected_network_elements":["NE-301","NE-302","NE-303","NE-304"]},"terminal":false,"synthetic":true}
+
+id: EVT-9711F348E5
+event: agent1_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-9711F348E5","event_type":"agent1_completed","sequence":8,"timestamp":"2026-11-02T08:34:55.606483Z","stage":"ASSET_IMPACT","status":"COMPLETED","source":"weather_network_intelligence","message":"Agent 1 completed NetworkRiskEvent generation.","data":{"weather_event":"SEVERE_STORM","severity":"HIGH","affected_region":"Region-C","affected_ne_count":4,"affected_network_elements":["NE-301","NE-302","NE-303","NE-304"]},"terminal":false,"synthetic":true}
+
+id: EVT-F36ACA73FA
+event: agent2_started
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-F36ACA73FA","event_type":"agent2_started","sequence":9,"timestamp":"2026-11-02T08:34:55.606751Z","stage":"ASSET_IMPACT","status":"IN_PROGRESS","source":"network_resilience","message":"Invoking Agent 2 (Network Resilience & Governed Action Agent).","data":{"affected_network_elements":["NE-301","NE-302","NE-303","NE-304"]},"terminal":false,"synthetic":true}
+
+id: EVT-ED4F8FDCDB
+event: inventory_enriched
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-ED4F8FDCDB","event_type":"inventory_enriched","sequence":10,"timestamp":"2026-11-02T08:35:00.745222Z","stage":"ASSET_IMPACT","status":"PARTIAL_UNRESOLVED","source":"network_resilience","message":"Enriched 1 network element(s); unresolved=['NE-302', 'NE-303', 'NE-304'].","data":{"resolved_count":1,"unresolved_network_elements":["NE-302","NE-303","NE-304"]},"terminal":false,"synthetic":true}
+
+id: EVT-F3BA5C8426
+event: service_impact_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-F3BA5C8426","event_type":"service_impact_completed","sequence":11,"timestamp":"2026-11-02T08:35:00.745689Z","stage":"ASSET_IMPACT","status":"COMPLETED","source":"network_resilience","message":"Service risk is HIGH: 2 affected service(s) across 1 resolved element(s) (0 CRITICAL, 1 HIGH; redundancy_available_for_all=False; unresolved=3).","data":{"affected_service_count":2,"affected_services":["ENTERPRISE_VPN","SIP_TRUNKING"],"critical_network_element_count":0,"service_risk":"HIGH"},"terminal":false,"synthetic":true}
+
+id: EVT-A2CCB04568
+event: risk_assessed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-A2CCB04568","event_type":"risk_assessed","sequence":12,"timestamp":"2026-11-02T08:35:00.746083Z","stage":"RISK_ASSESSMENT","status":"COMPLETED","source":"network_resilience","message":"Risk assessment completed: overall_risk=CRITICAL (score=100).","data":{"risk_score":100,"overall_risk":"CRITICAL","weather_risk":"HIGH","network_risk":"HIGH","service_risk":"HIGH","risk_reasons":["Weather severity HIGH contributed +40 points.","Highest affected asset criticality HIGH (NE-301) contributed +15 points.","Affected network element count (4) contributed +15 points.","Service exposure (2 affected service(s)) contributed +10 points.","Redundancy is missing for at least one affected element (+10 points).","Unresolved inventory element(s) ['NE-302', 'NE-303', 'NE-304'] contributed +10 points."]},"terminal":false,"synthetic":true}
+
+id: EVT-1975C931EA
+event: bedrock_reasoning_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-1975C931EA","event_type":"bedrock_reasoning_completed","sequence":13,"timestamp":"2026-11-02T08:35:00.746431Z","stage":"RECOMMENDATION","status":"COMPLETED","source":"network_resilience","message":"AI explanation used deterministic fallback.","data":{"model_id":"us.anthropic.claude-haiku-4-5-20251001-v1:0","result_status":"FALLBACK_USED","fallback_used":true,"situation_summary":"SEVERE_STORM (HIGH) in Region-C affects 4 network element(s): ['NE-301', 'NE-302', 'NE-303', 'NE-304'].","risk_explanation":"Deterministic risk score is 100/100 (CRITICAL), with network_risk=HIGH, service_risk=HIGH, and exposed services=['ENTERPRISE_VPN', 'SIP_TRUNKING'].","recommendation_rationale":"Inventory data is incomplete for element(s) ['NE-302', 'NE-303', 'NE-304']; automated state-changing actions are withheld pending operator review.","operator_summary":"Recommended action 'NO_AUTOMATED_ACTION' for targets ['NE-301', 'NE-302', 'NE-303', 'NE-304'] under deterministic governance controls.","error_reason":"IntegrationError: Bedrock converse invocation failed (SSLError): SSL validation failed for https://bedrock-runtime.us-east-2.amazonaws.com/model/us.anthropic.claude-haiku-4-5-20251001-v1%3A0/converse [Errno 2] No such file or directory"},"terminal":false,"synthetic":true}
+
+id: EVT-63DD94C8EB
+event: recommendation_generated
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-63DD94C8EB","event_type":"recommendation_generated","sequence":14,"timestamp":"2026-11-02T08:35:00.746729Z","stage":"RECOMMENDATION","status":"COMPLETED","source":"network_resilience","message":"Generated preventive recommendation 'NO_AUTOMATED_ACTION'.","data":{"recommendation_id":"REC-6E1D890A52","action":"NO_AUTOMATED_ACTION","target_network_elements":["NE-301","NE-302","NE-303","NE-304"],"rationale":"Inventory data is incomplete for element(s) ['NE-302', 'NE-303', 'NE-304']; automated state-changing actions are withheld pending operator review.","expected_outcome":"Prevent unverified automated changes while operators inspect missing inventory.","state_changing":false,"human_approval_required":true,"confidence":0.5},"terminal":false,"synthetic":true}
+
+id: EVT-F58E0B0CC5
+event: governance_decided
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-F58E0B0CC5","event_type":"governance_decided","sequence":15,"timestamp":"2026-11-02T08:35:00.747019Z","stage":"GOVERNANCE","status":"BLOCKED","source":"PolicyEngine","message":"Governance decision: DENY (Explicit governance DENY scenario policy rule.; Automated action is denied because inventory data is incomplete for: ['NE-302', 'NE-303', 'NE-304'].)","data":{"decision":"DENY","reason":"Explicit governance DENY scenario policy rule.; Automated action is denied because inventory data is incomplete for: ['NE-302', 'NE-303', 'NE-304'].","matched_policy_rules":["POLICY-DENY-FORCED-000","POLICY-DENY-INCOMPLETE-INVENTORY-004"]},"terminal":false,"synthetic":true}
+
+id: EVT-43104DE6B1
+event: action_blocked
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-43104DE6B1","event_type":"action_blocked","sequence":16,"timestamp":"2026-11-02T08:35:00.747386Z","stage":"ACTION","status":"BLOCKED","source":"MockRemediationAdapter","message":"Execution blocked by DENY governance decision.","data":{"approval":"NOT_REQUIRED","execution":"BLOCKED","action":"NO_AUTOMATED_ACTION"},"terminal":false,"synthetic":true}
+
+id: EVT-42903D5FD0
+event: verification_blocked
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-42903D5FD0","event_type":"verification_blocked","sequence":17,"timestamp":"2026-11-02T08:35:00.747650Z","stage":"VERIFICATION","status":"BLOCKED","source":"SyntheticVerificationService","message":"Post-action verification blocked by governance DENY.","data":{"verification":"BLOCKED","reasons":["Synthetic verification blocked because governance decision was DENY."]},"terminal":false,"synthetic":true}
+
+id: EVT-FC40D5B38B
+event: evidence_captured
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-FC40D5B38B","event_type":"evidence_captured","sequence":18,"timestamp":"2026-11-02T08:35:00.747917Z","stage":"EVIDENCE","status":"COMPLETED","source":"AuditRecorder","message":"Captured 10 ordered workflow evidence record(s).","data":{"evidence_count":10,"cloudwatch_event_count":0},"terminal":false,"synthetic":true}
+
+id: EVT-D7EA1F41D5
+event: agent2_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-D7EA1F41D5","event_type":"agent2_completed","sequence":19,"timestamp":"2026-11-02T08:35:00.748197Z","stage":"EVIDENCE","status":"COMPLETED","source":"network_resilience","message":"Agent 2 completed resilience analysis and governance evaluation.","data":{"overall_risk":"CRITICAL","risk_score":100,"governance_decision":"DENY","approval_status":"NOT_REQUIRED","execution_status":"BLOCKED","verification_status":"BLOCKED"},"terminal":false,"synthetic":true}
+
+id: EVT-3F726FF39C
+event: run_completed
+data: {"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","schema_version":"0.1","event_id":"EVT-3F726FF39C","event_type":"run_completed","sequence":20,"timestamp":"2026-11-02T08:35:00.748476Z","stage":"EVIDENCE","status":"DENIED_AND_BLOCKED","source":"workflow_sse_orchestrator","message":"Workflow stream completed with status=DENIED_AND_BLOCKED.","data":{"run_id":"WX-SSE-DENY-6E12FCE3","trace_id":"TRACE-SSE-DENY-6E12FCE3","workflow_status":"DENIED_AND_BLOCKED","overall_risk":"CRITICAL","governance_decision":"DENY","approval_status":"NOT_REQUIRED","execution_status":"BLOCKED","verification_status":"BLOCKED","approval":"NOT_REQUIRED","execution":"BLOCKED","verification":"BLOCKED","evidence_count":10,"cloudwatch_event_count":0},"terminal":true,"synthetic":true}
+

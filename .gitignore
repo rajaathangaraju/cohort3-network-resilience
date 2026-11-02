@@ -1,0 +1,48 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.vscode/
+.idea/
+*.zip
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Runtime files
+stream_ui/runtime/
+stream_ui/logs/
+streamlit_ui/runtime/
+streamlit_ui/logs/
+
+# Temporary/build files
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

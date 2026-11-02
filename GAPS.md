@@ -1,0 +1,9 @@
+# Known Gaps and Limitations
+
+- **Network inventory is synthetic**: Both Agent 1 (`MockInventoryAdapter`) and Agent 2 (`MockNetworkInventoryAdapter`) operate on synthetic catalogs rather than live telecom inventory APIs.
+- **Service impact is rule-based**: `ServiceImpactAnalyzer` uses deterministic rules over synthetic element metadata and does not estimate customer counts, financial impact, downtime, or SLA penalties.
+- **Risk scoring is an MVP policy**: The 0-100 additive scoring model in `RiskAnalyzer` is an initial synthetic MVP scoring policy, not a production-approved actuarial or telecom risk model.
+- **Deterministic governance vs. AI-assisted explanation**: Amazon Bedrock (`us.anthropic.claude-haiku-4-5-20251001-v1:0`) generates operator-facing situation summaries, risk explanations, and recommendation rationale with automatic fallback (`DeterministicFallbackReasoningAdapter`). Bedrock never makes authoritative decisions for numerical risk scores, `ALLOW`/`DENY`/`PAUSE` governance, human approval, or action execution.
+- **Workflow SSE streaming is backend HTTP SSE**: Progress streaming uses HTTP Server-Sent Events (`text/event-stream`) over `InMemoryWorkflowEventStore` rather than WebSockets or a persistent database store; Agent 1 and Agent 2 continue returning complete typed JSON contracts (`NetworkRiskEvent` and `Agent2Result`), and SSE never authorizes actions or replaces audit evidence.
+- **Frontend UI is out of scope for this phase**: The backend HTTP JSON and SSE endpoints are complete and validated; interactive React SSE consumption is deferred.
+- **Human approval, remediation, and verification are synthetic**: All remediation actions (`MockRemediationAdapter`) and post-action verifications (`SyntheticVerificationService`) are simulated (`synthetic=true`) and never modify real network elements.

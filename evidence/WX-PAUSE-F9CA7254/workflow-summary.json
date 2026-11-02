@@ -1,0 +1,164 @@
+{
+  "run_id": "WX-PAUSE-F9CA7254",
+  "trace_id": "TRACE-PAUSE-F9CA7254",
+  "schema_version": "0.1",
+  "team_code": "TEAM_PENDING",
+  "risk_assessment": {
+    "risk_score": 85,
+    "overall_risk": "CRITICAL",
+    "weather_risk": "HIGH",
+    "network_risk": "HIGH",
+    "service_risk": "HIGH",
+    "risk_reasons": [
+      "Weather severity HIGH contributed +40 points.",
+      "Highest affected asset criticality CRITICAL (NE-101) contributed +20 points.",
+      "Affected network element count (2) contributed +10 points.",
+      "Service exposure (4 affected service(s)) contributed +15 points.",
+      "Redundancy is available for all resolved elements (+0 points).",
+      "All requested network elements resolved in inventory (+0 points)."
+    ],
+    "unresolved_network_elements": []
+  },
+  "ai_reasoning": {
+    "run_id": "WX-PAUSE-F9CA7254",
+    "trace_id": "TRACE-PAUSE-F9CA7254",
+    "model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+    "operation": "generate_resilience_explanation",
+    "start_status": "STARTED",
+    "result_status": "FALLBACK_USED",
+    "fallback_used": true,
+    "error_reason": "IntegrationError: Bedrock converse invocation failed (SSLError): SSL validation failed for https://bedrock-runtime.us-east-2.amazonaws.com/model/us.anthropic.claude-haiku-4-5-20251001-v1%3A0/converse [Errno 2] No such file or directory",
+    "recorded_at": "2026-11-02T07:24:49.000589Z",
+    "reasoning": {
+      "situation_summary": "SEVERE_STORM (HIGH) in Demo-Region-A affects 2 network element(s): ['NE-101', 'NE-102'].",
+      "risk_explanation": "Deterministic risk score is 85/100 (CRITICAL), with network_risk=HIGH, service_risk=HIGH, and exposed services=['MOBILE_DATA', 'VOICE', 'IP_TRANSIT', 'ENTERPRISE_CONNECTIVITY'].",
+      "recommendation_rationale": "Overall risk is CRITICAL (score=85); immediate preventive action 'REROUTE_TRAFFIC' is recommended for ['NE-101', 'NE-102'].",
+      "operator_summary": "Recommended action 'REROUTE_TRAFFIC' for targets ['NE-101', 'NE-102'] under deterministic governance controls."
+    }
+  },
+  "recommendation": {
+    "recommendation_id": "REC-53C2D0C80E",
+    "action": "REROUTE_TRAFFIC",
+    "target_network_elements": [
+      "NE-101",
+      "NE-102"
+    ],
+    "rationale": "Overall risk is CRITICAL (score=85); immediate preventive action 'REROUTE_TRAFFIC' is recommended for ['NE-101', 'NE-102'].",
+    "expected_outcome": "Proactively isolate or reroute critical services away from severe weather impact.",
+    "state_changing": true,
+    "human_approval_required": true,
+    "confidence": 0.92,
+    "generated_at": "2026-11-02T07:24:48.125214Z"
+  },
+  "governance": {
+    "decision": "PAUSE",
+    "reason": "Human approval is required before a state-changing or governed action.",
+    "matched_policy_rules": [
+      "POLICY-PAUSE-STATE-CHANGING-101",
+      "POLICY-PAUSE-HUMAN-APPROVAL-102"
+    ]
+  },
+  "approval": {
+    "status": "REJECTED",
+    "approval_id": "APR-BBBE4E2025",
+    "requested_at": "2026-11-02T07:24:49.001039Z",
+    "decided_at": "2026-11-02T07:24:49.001075Z",
+    "approver_reference": "demo-approver",
+    "comments": "Explicit REJECTED recorded by synthetic approver 'demo-approver'."
+  },
+  "execution": {
+    "status": "BLOCKED",
+    "action_id": "ACT-F078FDBFE2",
+    "action": "SIMULATE_TRAFFIC_REROUTE",
+    "target_network_elements": [
+      "NE-101",
+      "NE-102"
+    ],
+    "started_at": null,
+    "completed_at": null,
+    "result_message": "Execution blocked: human approval status is REJECTED.",
+    "changed_state": false,
+    "synthetic": true
+  },
+  "verification": {
+    "status": "BLOCKED",
+    "verification_id": "VER-C9B44CBC2A",
+    "action_id": "ACT-F078FDBFE2",
+    "action_result_verified": false,
+    "asset_state": "UNCHANGED_SYNTHETIC",
+    "post_action_check": "SKIPPED_DUE_TO_APPROVAL_REJECTED",
+    "outcome_verified": false,
+    "verification_reasons": [
+      "Synthetic verification blocked because human approval status was REJECTED."
+    ],
+    "verified_at": null,
+    "synthetic": true
+  },
+  "workflow_stages": [
+    {
+      "stage": "WEATHER",
+      "status": "COMPLETED",
+      "summary": "Weather alert validated and ingested.",
+      "updated_at": "2026-11-02T07:24:49.001818Z"
+    },
+    {
+      "stage": "GEO_CORRELATION",
+      "status": "COMPLETED",
+      "summary": "Geographic correlation and bounding box validated.",
+      "updated_at": "2026-11-02T07:24:49.001824Z"
+    },
+    {
+      "stage": "ASSET_IMPACT",
+      "status": "COMPLETED",
+      "summary": "Network element enrichment and service impact completed.",
+      "updated_at": "2026-11-02T07:24:49.001828Z"
+    },
+    {
+      "stage": "RISK_ASSESSMENT",
+      "status": "COMPLETED",
+      "summary": "Deterministic 0-100 risk assessment completed.",
+      "updated_at": "2026-11-02T07:24:49.001832Z"
+    },
+    {
+      "stage": "RECOMMENDATION",
+      "status": "COMPLETED",
+      "summary": "Preventive action recommendation generated.",
+      "updated_at": "2026-11-02T07:24:49.001836Z"
+    },
+    {
+      "stage": "GOVERNANCE",
+      "status": "PAUSED",
+      "summary": "Governance policy evaluated to PAUSE (human approval required).",
+      "updated_at": "2026-11-02T07:24:49.001841Z"
+    },
+    {
+      "stage": "APPROVAL",
+      "status": "BLOCKED",
+      "summary": "Human approval was REJECTED.",
+      "updated_at": "2026-11-02T07:24:49.001848Z"
+    },
+    {
+      "stage": "ACTION",
+      "status": "BLOCKED",
+      "summary": "Action execution blocked because approval was REJECTED.",
+      "updated_at": "2026-11-02T07:24:49.001853Z"
+    },
+    {
+      "stage": "VERIFICATION",
+      "status": "BLOCKED",
+      "summary": "Verification blocked because approval was REJECTED.",
+      "updated_at": "2026-11-02T07:24:49.001857Z"
+    },
+    {
+      "stage": "EVIDENCE",
+      "status": "COMPLETED",
+      "summary": "Audit and stage evidence captured.",
+      "updated_at": "2026-11-02T07:24:49.001862Z"
+    }
+  ],
+  "evidence_count": 13,
+  "cloudwatch_event_count": 20,
+  "agent1_cloudwatch_event_count": 6,
+  "agent2_cloudwatch_event_count": 14,
+  "synthetic": true
+}
